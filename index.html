@@ -1,0 +1,82 @@
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>FZU还有多久开学？</title>
+    <style>
+        body{
+            text-align:center
+        }
+    </style>
+</head>
+<body>
+<br><br><br><br><br><br>
+<p style="font-size: 60px;"><b>FZU 开学倒计时</b></p>
+<div id="2017" class="HotDate">
+    <h1 style="color: lightblue">2017 级还有：
+    <span id="2017_t_d">00天</span>
+    <span id="2017_t_h">00时</span>
+    <span id="2017_t_m">00分</span>
+    <span id="2017_t_s">00秒</span>
+    开学
+    </h1>
+</div>
+<div id="2018" class="HotDate">
+    <h1 style="color: deepskyblue">2018 级还有：
+        <span id="2018_t_d">00天</span>
+        <span id="2018_t_h">00时</span>
+        <span id="2018_t_m">00分</span>
+        <span id="2018_t_s">00秒</span>
+        开学
+    </h1>
+</div>
+<div id="2019" class="HotDate">
+    <h1 style="color: cornflowerblue">2019 级还有：
+        <span id="2019_t_d">00天</span>
+        <span id="2019_t_h">00时</span>
+        <span id="2019_t_m">00分</span>
+        <span id="2019_t_s">00秒</span>
+        开学
+    </h1>
+</div>
+<div id="2020" class="HotDate">
+    <h1 style="color: blue">2020 级还有：
+        <span id="2020_t_d">00天</span>
+        <span id="2020_t_h">00时</span>
+        <span id="2020_t_m">00分</span>
+        <span id="2020_t_s">00秒</span>
+        开学
+    </h1>
+</div>
+</body>
+<script>
+    update();
+    function getRTime(time,g){
+        var EndTime = new Date(time);
+        var NowTime = new Date();
+        var t = EndTime.getTime() - NowTime.getTime();
+
+        var d=checkNum(Math.floor(t/1000/60/60/24));
+        var h=checkNum(Math.floor(t/1000/60/60%24));
+        var m=checkNum(Math.floor(t/1000/60%60));
+        var s=checkNum(Math.floor(t/1000%60));
+
+        document.getElementById(g+"_t_d").innerHTML = d + "天";
+        document.getElementById(g+"_t_h").innerHTML = h + "时";
+        document.getElementById(g+"_t_m").innerHTML = m + "分";
+        document.getElementById(g+"_t_s").innerHTML = s + "秒";
+    }
+    function update(){
+        getRTime('2020/8/28 00:00:00',2017)
+        getRTime('2020/8/29 00:00:00',2018)
+        getRTime('2020/8/30 00:00:00',2019)
+        getRTime('2020/9/22 00:00:00',2020)
+    }
+    function checkNum(val){
+        if(val < 10){
+            val = "0" + val.toString();
+        }
+        return val.toString();
+    }
+    setInterval(update,500);
+</script>
+</html>
