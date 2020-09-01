@@ -59,11 +59,7 @@
         var h=checkNum(Math.floor(t/1000/60/60%24));
         var m=checkNum(Math.floor(t/1000/60%60));
         var s=checkNum(Math.floor(t/1000%60));
-        if(d<0)d=0;
-        if(h<0)h=0;
-        if(m<0)m=0;
-        if(s<0)s=0;
-        
+
         document.getElementById(g+"_t_d").innerHTML = d + "天";
         document.getElementById(g+"_t_h").innerHTML = h + "时";
         document.getElementById(g+"_t_m").innerHTML = m + "分";
@@ -79,6 +75,8 @@
         if(val < 10){
             val = "0" + val.toString();
         }
+        if(val < 0)
+            val = 0;
         return val.toString();
     }
     setInterval(update,500);
